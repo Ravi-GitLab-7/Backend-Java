@@ -1,7 +1,5 @@
 package Generics;
 
-import java.security.PrivateKey;
-
 public class Aquarium {
     private  Object fish1;
     private Object fish2;
