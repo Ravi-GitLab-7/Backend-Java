@@ -1,19 +1,19 @@
 package Generics;
 
-public class Aquarium {
-    private  Object fish1;
-    private Object fish2;
+public class Aquarium<T> {
+    private  T fish1;
+    private T fish2;
 
     // construction
-    public Aquarium(Object fish1,Object fish2 ){
+    public Aquarium(T fish1,T fish2 ){
         this.fish1=fish1;
         this.fish2=fish2;
     }
     // for accessing
-    public Object getFish1(){
+    public T getFish1(){
         return fish1;
     }
-    public Object getFish2(){
+    public T getFish2(){
         return fish2;
     }
 }
