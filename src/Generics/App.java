@@ -52,27 +52,55 @@ public class App {
 //        Aquarium aquarium2 = new Aquarium(new GoldFish(),new String("Ravi"));  // thisa the raw material it is not paramatrized
 
     // use iteration methods
+//        ArrayList<String> al = new ArrayList<String>();
+//        al.add("Ravi");
+//        al.add("Raj");
+//        al.add("Amit");
+//        al.add("Rohit");
+
+//        Iterator<String> i = al.iterator();
+//
+//        while (i.hasNext()) {
+//            String next = i.next();
+//            System.out.print(next+" ");
+//        }
+//        System.out.println();
+
+//        //parametrized types
+//        Box<String> box = new Box<>();
+////        var v = new Box<Integer>();
+////        v.setValue(5);
+////        System.out.println(v.getValue());
+//        box.setValue("Ravi");
+//        // assigned generics type object to raw type
+//        Box anotherBox = box;  // reference
+//        anotherBox.setValue(100); //
+//        System.out.println(anotherBox.getValue());
+//        String value = box.getValue();
+
+
+        Box<String> box = new Box<String>();
+        box.setValue("Ravi");
+//        Box<Integer> anotherBox = box;//incompatible types: Generics.Box<java.lang.String> cannot be converted to Generics.Box<java.lang.Integer>
+//        Integer Value = anotherBox.getValue();
+
+
+        // interview question predict output
+        Box<Integer> box1 = new Box<Integer>();
+        Box<String> box2 = new Box<String>();
+        // use type eraser concept
+        System.out.println(box1.getClass().getName());//Generics.Box
+        System.out.println(box2.getClass().getName());//Generics.Box
+        System.out.println(box1.getClass()==box2.getClass()); //true
+        System.out.println(box1.getClass().equals(box2.getClass()));  //true
+
         ArrayList<String> al = new ArrayList<String>();
         al.add("Ravi");
         al.add("Raj");
         al.add("Amit");
         al.add("Rohit");
-
-        Iterator<String> i = al.iterator();
-
-        while (i.hasNext()) {
-            String next = i.next();
-            System.out.print(next+" ");
-        }
-        System.out.println();
-        Box<String> box = new Box<>();
-//        var v = new Box<Integer>();
-//        v.setValue(5);
-//        System.out.println(v.getValue());
-        box.setValue("Ravi");
-        Box anotherBox = box;  // reference
-        anotherBox.setValue(100); //
-        System.out.println(anotherBox.getValue());
-        String value = box.getValue();
+        ArrayList list = al; // compile it & it will be true
+        list.add(100);
+        System.out.println(list);  //[Ravi, Raj, Amit, Rohit, 100]->  all r run corect code and this will happend
     }
 }
