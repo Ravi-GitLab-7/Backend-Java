@@ -1,5 +1,18 @@
 package Generics;
 
+import java.lang.invoke.VarHandle;
+import java.util.ArrayList;
+import java.util.Iterator;
+
+class Box<T> {
+    private T value;
+    public void setValue(T value) {
+        this.value = value;
+    }
+    public T getValue() {
+        return value;
+    }
+}
 public class App {
     public static void main(String[] args) {
 //        Aquarium aquarium = new Aquarium(new GoldFish(),new GoldFish());
@@ -37,5 +50,23 @@ public class App {
         System.out.println(starfish1+" "+starfish2);
          // why java allowed this raw materia;l for his code
         Aquarium aquarium2 = new Aquarium(new GoldFish(),new String("Ravi"));  // thisa the raw material it is not paramatrized
+
+    // use iteration methods
+        ArrayList<String> al = new ArrayList<String>();
+        al.add("Ravi");
+        al.add("Raj");
+        al.add("Amit");
+        al.add("Rohit");
+
+        Iterator<String> i = al.iterator();
+
+        while (i.hasNext()) {
+            String next = i.next();
+            System.out.println(next);
+        }
+        Box<Integer> box = new Box();
+        var v = new Box<Integer>();
+        v.setValue(5);
+        System.out.println(v.getValue());
     }
 }
