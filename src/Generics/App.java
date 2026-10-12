@@ -102,5 +102,7 @@ public class App {
         ArrayList list = al; // compile it & it will be true
         list.add(100);
         System.out.println(list);  //[Ravi, Raj, Amit, Rohit, 100]->  all r run corect code and this will happend
+        System.out.println(al);  //[Ravi, Raj, Amit, Rohit, 100]
+        String string = al.get(3);  // compile
     }
 }
