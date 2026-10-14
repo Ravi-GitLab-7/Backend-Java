@@ -1,8 +1,10 @@
 package genericsThree;
 
+import java.io.Serializable;
+import java.util.AbstractCollection;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Hashtable;
+import java.util.HashSet;
 import java.util.List;
 
 class Box<T> {
@@ -26,9 +28,13 @@ class HashTable<K , V>{  // not make them static bc
     public K getKey(){
         return key;
     }
-    public V grtValue(){
+    public V getValue(){
         return value;
     }
+}
+
+class Animal implements Serializable {
+    private static final long serialVersionUID = 1L;
 }
 
 
@@ -40,7 +46,7 @@ public class App {
         return no;
     }
     // m ->2
-    public static <U> void pritnItm(U[] items){
+    public static <U> void printItem(U[] items){
     for (U item : items){
         System.out.println(item);
     }
@@ -54,11 +60,13 @@ public class App {
 
 
     // another method @override
-    public <T> void myMethod1(T t){
+    public <T, E> void myMethod1(T t, E e){
 
     }
 
-
+   public static <T> T myMethod2(T param1,T param2){
+        return param1;
+   }
 
     public static void main(String[] args) {
         // m ->1
@@ -67,8 +75,8 @@ public class App {
 //        Character showItem3 = showItem('C');
 //        Double showItem4 = showItem(100.4);
           // m ->2
-//        App.pritnItm(new Integer[]{1,2,3,4,5});
-//        App.pritnItm(new String[]{"a","b","c","d","e"});
+//        App.printItem(new Integer[]{1,2,3,4,5});
+//        App.printItem(new String[]{"a","b","c","d","e"});
         // m ->3
         App.printMultipleItem("Ravi",1234);
         App.<String,Integer>printMultipleItem("Ravi",1234);
@@ -93,5 +101,13 @@ public class App {
         for (Object o : array){
             System.out.println(o);
         }
+
+        new App().myMethod1(100, "Ravi");
+        App.<String>myMethod2("Ravui", "Raj");
+        App.<Integer>myMethod2(100,200);
+        App.myMethod2("Ravui", 100); // not give error  thi is colled super type
+
+        AbstractCollection<?> collection =
+                App.myMethod2(new ArrayList<>(), new HashSet<>());
     }
 }
