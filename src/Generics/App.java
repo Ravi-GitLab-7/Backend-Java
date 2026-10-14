@@ -2,6 +2,7 @@ package Generics;
 
 import java.lang.invoke.VarHandle;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
 
 class Box<T> {
@@ -104,5 +105,6 @@ public class App {
         System.out.println(list);  //[Ravi, Raj, Amit, Rohit, 100]->  all r run corect code and this will happend
         System.out.println(al);  //[Ravi, Raj, Amit, Rohit, 100]
         String string = al.get(3);  // compile
+        Collection collection = al;
     }
 }

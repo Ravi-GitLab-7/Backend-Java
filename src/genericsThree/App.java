@@ -1,5 +1,38 @@
 package genericsThree;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Hashtable;
+import java.util.List;
+
+class Box<T> {
+    private T value;
+    public void setValue(T value) {
+        this.value = value;
+    }
+    public T getValue() {
+        return value;
+    }
+}
+
+class HashTable<K , V>{  // not make them static bc
+    private K key;
+    private V value;
+
+    public HashTable(K key,V value){
+        this.key = key;
+        this.value = value;
+    }
+    public K getKey(){
+        return key;
+    }
+    public V grtValue(){
+        return value;
+    }
+}
+
+
+
 public class App {
     // m ->1
     public static <T> T showItem(T no){
@@ -17,6 +50,16 @@ public class App {
         System.out.println(t.toString());
         System.out.println(u.toString());
     }
+
+
+
+    // another method @override
+    public <T> void myMethod1(T t){
+
+    }
+
+
+
     public static void main(String[] args) {
         // m ->1
 //        Integer showItem = showItem(100);
@@ -29,5 +72,26 @@ public class App {
         // m ->3
         App.printMultipleItem("Ravi",1234);
         App.<String,Integer>printMultipleItem("Ravi",1234);
+        HashTable<String,Integer> hashtable1 = new HashTable<>("Ravi",123);
+        String key = hashtable1.getKey();
+//        Integer value = hashtable1.getValue();
+//        System.out.println(key +" " + value);
+
+        // extra method ->1
+        List<String> stringList = new ArrayList<>();
+        stringList.add("Ravi");
+        stringList.add("Rohit");
+        System.out.println(stringList);
+        Collections.replaceAll(stringList,"Ravi","Amit");
+        System.out.println(stringList);
+
+        // -> 2
+        List<String> stringList1 = Collections.emptyList();  // return string list
+        List<Integer> stringList2 = Collections.emptyList();  // return integer list
+
+        Object[] array = stringList.toArray();
+        for (Object o : array){
+            System.out.println(o);
+        }
     }
 }
