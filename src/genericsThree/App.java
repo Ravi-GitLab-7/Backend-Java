@@ -57,6 +57,9 @@ public class App {
         System.out.println(u.toString());
     }
 
+//    public class App<T>{
+//        T t;
+//    }
 
 
     // another method @override
@@ -66,6 +69,22 @@ public class App {
 
    public static <T> T myMethod2(T param1,T param2){
         return param1;
+   }
+
+    public static <T> List<T> convertArrayToCollection(T[] arrayObj, List<T> list){
+        for (T objectValue : arrayObj){
+            list.add(objectValue);
+        }
+        return list;
+   }
+
+   public static <T extends Number> double sum(T a,T b){
+
+        return a.doubleValue() + b.doubleValue();
+   }
+
+   public static<U> void someMethod(U u){ // where U is string
+
    }
 
     public static void main(String[] args) {
@@ -107,7 +126,24 @@ public class App {
         App.<Integer>myMethod2(100,200);
         App.myMethod2("Ravui", 100); // not give error  thi is colled super type
 
-        AbstractCollection<?> collection =
-                App.myMethod2(new ArrayList<>(), new HashSet<>());
+        AbstractCollection<?> collection = App.myMethod2(new ArrayList<>(), new HashSet<>());
+
+        Integer[] intArr = new Integer[] {10,20,20,40,50};
+        ArrayList<Integer> listOfInteger = new ArrayList<>();
+        List<Integer> convertArrayToCollection= convertArrayToCollection(intArr,listOfInteger);
+        System.out.println(convertArrayToCollection);
+        // now convert StringIntoCollections
+
+        String[] stringArr = new String[] {"Amit","Ravi","Rohit"};
+        ArrayList<String> listOfString = new ArrayList<>();
+        List<String> convertStringToCollection= convertArrayToCollection(stringArr,listOfString);
+        System.out.println(convertStringToCollection);
+
+        System.out.println(sum(10,20));
+        someMethod("Ravi");
+
+//        App<Integer> app = new App<>;
+//        app.t= Integer.valueOf(100);
+//        Integer intValue = app.t;
     }
 }
