@@ -73,6 +73,53 @@ public class sample1 {
     return sum;
 }
 
+    // pecs producer extends consumer super
+    public static void displayNumbers(List<? extends Number> numbersList) {
+        for (Number item : numbersList){
+            System.out.println(item);
+        }
+
+//        numbersList.add(12); // not adding because here present extends
+//        numbersList.size();
+    }
+        // invarient
+    List<Dog> dogList1 = new ArrayList<Dog>();
+
+    // covarience
+    List<? extends Dog> animalList1 = new ArrayList<Husky>();
+
+    // contraVarient -> going upside
+    List<? super Dog> animalList2 = new ArrayList<Object>();
+    List<? super Dog> animalList3 = new ArrayList<Animal>();
+    List<? super Dog> animalList4 = new ArrayList<Creature>();
+
+    // another example of pmce
+    // in this method we passed List<animal>,List<cat>,List<dog>,List<IndianCat>,List<Husky>
+    public static void displayAnimal(List<? extends Animal> animalsList) { //take data -> producer of animal bc take animal name from list
+        for (Animal animal:animalsList){
+            System.out.println(animal);
+        }
+    }
+
+
+    // amothr exmple of lower bound wildcad ( ? super type )  // where we can add any types of animal
+
+    List<? super Animal> animalList5 = new ArrayList<Creature>(); // everything will fit in this way
+    public static void addAnimal(List<? super Animal> animalList5){
+
+//        Object animal = animalList5.getFirst();
+
+        animalList5.add(new Dog());
+        animalList5.add(new Animal());
+        animalList5.add(new Cat());
+//
+//        for (Object animal : animalList5){
+//            System.out.println(animal);
+//        }
+
+    }
+
+
 // if i want to use same mathod  not possible beause thiswill same method and in generics is not possible
 //public static Double sumAnyValue(List< Number> listOfNumbers) {
 //    double sum = 0;
@@ -89,6 +136,18 @@ public class sample1 {
 
 
 
+  // with the help of extend keyword we have achive covarience with assign number in intger andlo in double
+//ArrayList<Integer> arrayListOfInteger = new ArrayList<>();
+//        arrayListOfInteger.add(1);
+//        arrayListOfInteger.add(1);
+//    List<? extends Number> listOfNumber = arrayListOfInteger;
+//    listOfNumber.add(2.0); occure type safety issues this is bad thing its not assign
+//      for(Number number: listOfNumber){ // in not set Integer bc listNumber bounded with number
+//        System.out.println(number);
+//    }
+
+
+    List<? extends Number> listOfNumbers = new ArrayList<Float>(); // compiler say its ok take different parameter
     public static void main(String[] args) {
         // apply upperBond and used extends keyword in generics
 //        Home<Animal> animalHome = new Home<>(new Animal(),new Animal());
@@ -109,25 +168,25 @@ public class sample1 {
 
 
         // upperBond wild card achieve covariance made in invarience using generics
-        List<Integer> listOfInteger = new ArrayList<>(); // list<Integer> n = new
-        listOfInteger.add(1);
-        listOfInteger.add(2);
-        listOfInteger.add(3);
-        Double sumIntValue = sumAnyValue(listOfInteger);
-        System.out.println(sumIntValue);
-
-        List<Double> listOfDoubles = new ArrayList<>(); // list<Integer> n = new
-        listOfDoubles.add(1.0);
-        listOfDoubles.add(2.2);
-        listOfDoubles.add(3.5);
-        System.out.println(sumAnyValue(listOfDoubles));
-
-
-        List<Number> listOfNumber = new ArrayList<>(); // list<Integer> n = new
-        listOfNumber.add(1.0);
-        listOfNumber.add(2.2);
-        listOfNumber.add(3.5);
-        System.out.println(sumAnyValue(listOfNumber));
+//        List<Integer> listOfInteger = new ArrayList<>(); // list<Integer> n = new
+//        listOfInteger.add(1);
+//        listOfInteger.add(2);
+//        listOfInteger.add(3);
+//        Double sumIntValue = sumAnyValue(listOfInteger);
+//        System.out.println(sumIntValue);
+//
+//        List<Double> listOfDoubles = new ArrayList<>(); // list<Integer> n = new
+//        listOfDoubles.add(1.0);
+//        listOfDoubles.add(2.2);
+//        listOfDoubles.add(3.5);
+//        System.out.println(sumAnyValue(listOfDoubles));
+//
+//
+//        List<Number> listOfNumber = new ArrayList<>(); // list<Integer> n = new
+//        listOfNumber.add(1.0);
+//        listOfNumber.add(2.2);
+//        listOfNumber.add(3.5);
+//        System.out.println(sumAnyValue(listOfNumber));
 
 
         // if i have double vslue
@@ -146,5 +205,69 @@ public class sample1 {
 //        listOfNumber.add(3);
 //        System.out.println(sumIntValue(listOfNumber));
 
+        // pecs producer extends consumer super
+        List<Number> listOfNumbers = new ArrayList<>();
+        listOfNumbers.add(1);
+        listOfNumbers.add(2);
+        listOfNumbers.add(3);
+        displayNumbers(listOfNumbers);
+
+        List<Integer> listInteger = List.of(1,2,3,4,5);
+        displayNumbers(listInteger);
+
+        List<Double> listDouble = new ArrayList<>();
+        listDouble.add(1.0);
+        listDouble.add(2.0);
+        listDouble.add(3.0);
+        displayNumbers(listDouble);
+
+
+        // now we have to compare each of one by one
+//        public static void displayAnimal(List<? extends Animal> animalsList)
+        List<Cat> catList = new ArrayList<>();
+        catList.add(new Cat());
+        catList.add(new Cat());
+        displayAnimal(catList);
+
+        List<Dog> dogList = new ArrayList<>();
+        dogList.add(new Dog());
+        dogList.add(new Dog());
+        displayAnimal(dogList);
+
+        List<IndianCat> indianCatList = new ArrayList<>();
+        indianCatList.add(new IndianCat());
+        indianCatList.add(new IndianCat());
+        displayAnimal(indianCatList);
+
+        List<Husky> huskyList = new ArrayList<>();
+        huskyList.add(new Husky());
+        huskyList.add(new Husky());
+        displayAnimal(huskyList);
+
+//        List<Creature> creatureList = new ArrayList<>(); // not aplicable because this is the super class
+//        creatureList.add(new Dog());
+//        creatureList.add(new Dog());
+//        displayAnimal(creatureList);
+//
+//        List<Object> objectList = new ArrayList<>(); // not aplicable because this is the super class
+//        objectList.add(new Dog());
+//        objectList.add(new Dog());
+//        displayAnimal(objectList);
+
+        List<Animal> animalList2 = new ArrayList<>();
+        animalList2.add(new Husky()); // all are happend bc animal tends all of these
+        animalList2.add(new Dog());
+        animalList2.add(new Cat());
+        animalList2.add(new IndianCat());
+//        animalList2.add(new String()); // not take bc it nt extends animal
+        displayAnimal(animalList2);
+
+        // contravarient lower bounded wildCart
+        List<Animal> animalList5 = new ArrayList<>(); // lower bounded wildCart
+        animalList5.add(new Husky()); //
+        animalList5.add(new Dog());
+        animalList5.add(new Cat());
+        animalList5.add(new IndianCat());
+        addAnimal(animalList5);
     }
 }
