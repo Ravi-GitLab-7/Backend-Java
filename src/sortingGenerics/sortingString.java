@@ -1,5 +1,6 @@
 package sortingGenerics;
 
+import api.Song;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -12,9 +13,17 @@ public class sortingString {
         songList.add(new Song("near with me", "pawan sing", 2014));
         songList.add(new Song("close to my retina", "ravi raj", 2018));
 
-        Collections.sort(songList);
-        System.out.println("After sorting: ");
+
+        // use comprator => own logic
+        SortByYearComprator sortByYearComprator = new SortByYearComprator();
+        Collections.sort(songList,  sortByYearComprator);
+
+//        // when written in one sytance of above method
+//        Collections.sort(songList, new SortByYearComprator());
+
+        System.out.println("Songs sorted by year:");
         iterateList(songList);
+
     }
 
     private static void iterateList(ArrayList<Song> songList) {

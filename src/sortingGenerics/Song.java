@@ -39,7 +39,7 @@ public class Song implements Comparable<Song> {
         return "Song{" + "title=" + title + ", artist="
                 + artist + ", year=" + year + '}';
     }
-
+            // use comparaTo method
     @Override
     public int compareTo(Song anotherSong) {
 //        // in this have this is denote like current string and it compare with another string
@@ -62,5 +62,8 @@ public class Song implements Comparable<Song> {
 //        }
 
         return -this.getTitle().compareTo(anotherSong.getTitle()); // - means means decreasing
+
+
+        // now we have to use comperator method -> this is used own logic sorting
     }
 }
