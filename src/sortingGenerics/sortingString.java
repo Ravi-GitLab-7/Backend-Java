@@ -14,12 +14,16 @@ public class sortingString {
         songList.add(new Song("close to my retina", "ravi raj", 2018));
 
 
+        Collections.sort(songList);
         // use comprator => own logic
         SortByYearComprator sortByYearComprator = new SortByYearComprator();
         Collections.sort(songList,  sortByYearComprator);
 
 //        // when written in one sytance of above method
 //        Collections.sort(songList, new SortByYearComprator());
+
+        Collections.sort(songList, new SortArtistNamecomprator());
+        Collections.sort(songList, new SortTitlesComparator());
 
         System.out.println("Songs sorted by year:");
         iterateList(songList);
