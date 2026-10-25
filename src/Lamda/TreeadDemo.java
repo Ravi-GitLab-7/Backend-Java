@@ -36,24 +36,5 @@ public class TreeadDemo {
         Thread t2 = new Thread(thread2);
         t2.setName("Ravi-Thread-2");
         t2.start();
-
-
-        // Thread 3
-        Runnable thread3 = () -> {
-            for (int i = 0; i <= 30; i++) {
-
-                System.out.println("Table of i: " + i * 3);
-
-                try {
-                    Thread.sleep(600);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        };
-
-        Thread t3 = new Thread(thread3);
-        t3.setName("Ravi-Thread-3");
-        t3.start();
     }
 }
