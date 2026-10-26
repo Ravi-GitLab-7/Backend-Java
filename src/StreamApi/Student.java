@@ -1,6 +1,7 @@
 package StreamApi;
 
 public class Student {
+
     // for Test3
     private int id;
     private String studentName;

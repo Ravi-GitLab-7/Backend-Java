@@ -22,8 +22,13 @@ public class Test {
 //        streamOfStrings.forEach(consumer); // and foreach method it consume each string and accept string
         // use lamda
 
-        Stream.generate(()  ->"Hello Stream")
-           .forEach(str -> System.out.println("Printing the string"+str));
+//        Stream.generate(()  ->"Hello Stream")
+//           .forEach(str -> System.out.println("Printing the string"+str));
+
+        // print only 5 times of string givn in the list
+        Stream.generate(() ->"Hello String")
+                .limit(5)
+                .forEach(str -> System.out.println(str));
     }
 
 }
