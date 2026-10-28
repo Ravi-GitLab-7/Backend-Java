@@ -30,14 +30,14 @@ public class SumTest {
 
 
         //    1.>  static method reference (types of methd referernce
-        //here it take beacuse sum function already present in java libries and when it call with static methos then it will not giving any error
+        //here it(sum ) compile beacuse sum function already present in java libries and when it call with static methos then it will not giving any error
         Isum isumStaticMethodReference = Integer::sum;
         /**  basicaaly in lamda we write same code as given in this comment line
          (a,b) ->{
          return.Integer.sum(a,b);
          };
          */
-        // so with the help of method reference method we don't wroite any parameter return and also dont inisialize a,b
+        // so with the help of method reference method we don't write any parameter return and also dont inisialize a,b
         int sum2 = isumStaticMethodReference.sum(10, 60);
         System.out.println("using static metrhod for printing sum: " + sum2);
 

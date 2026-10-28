@@ -14,7 +14,7 @@ public class printTest {
         System.out.println(str);
         return str;
     }
-//    // if seet integer int interface then we should change intger from String
+//    // if seet integer int interface then we should change integer from String
 //    public static Integer print(String str){
 //        System.out.println(str);
 //        return 0;
