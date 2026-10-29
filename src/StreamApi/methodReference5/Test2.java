@@ -16,28 +16,25 @@ public class Test2 {
 //        System.out.println(employee);
 
 
-            // if i wann print only name of the employee
-        Function<Employee,String> employeefn = Employee::getName;
-        String name = employeefn.apply(new Employee(1,"Ravi"));
+        // if i wann print only name of the employee
+        Function<Employee, String> employeefn = Employee::getName;
+        String name = employeefn.apply(new Employee(1, "Ravi"));
         System.out.println(name);
-
-
 
 
         List<String> stringList = List.of("Ravi", "Kumar", "Raj");
 
-         // here use  print method
+        // here use  print method
         stringList
                 .stream()
                 .map(Employee::new)
-                .map(Employee ->{
-                    Employee.setId(ThreadLocalRandom.current().nextInt(1,20));
+                .map(Employee -> {
+                    Employee.setId(ThreadLocalRandom.current().nextInt(1, 20));
                     return Employee;
                 })
                 // if i wann print only name of the employee
                 .map(Employee::getName)
                 .map(String::toUpperCase)
                 .forEach(System.out::println);
-
     }
 }
