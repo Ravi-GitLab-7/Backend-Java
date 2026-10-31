@@ -7,13 +7,27 @@ import java.util.List;
 
 public class parallelStream {
     public static void main(String[] args) {
-
+        // sequential time
         long startTime = System.currentTimeMillis();
         getStudentList()
                 .stream()
                 .forEach(System.out::println);
         long endTime = System.currentTimeMillis();
         System.out.println("Time taken by sequential stream: " + (endTime - startTime) + "ms");
+
+
+        System.out.println("***********");
+
+        // paralle time
+        long startTime1 = System.currentTimeMillis();
+        getStudentList()
+                .stream()
+                .parallel()
+                .forEach(System.out::println);
+        long endTime1 = System.currentTimeMillis();
+        System.out.println("Time taken by parallel stream: " + (endTime1 - startTime1) + "ms");
+
+
 
 
 
