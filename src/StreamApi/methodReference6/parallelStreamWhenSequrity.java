@@ -20,7 +20,7 @@ public class parallelStreamWhenSequrity {
             List<Integer> list = Stream.iterate(0, no -> no + 1)
                     .parallel()
                     .limit(20)
-                    .collect(Collectors.toCollection( ArrayList::new)); // this will apply sfely
+                    .collect(Collectors.toCollection( ArrayList::new)); // this will apply sfely  when we use Collectors.toList then it create list then add internally
             System.out.println(list);
             System.out.println(list.size());
         }
