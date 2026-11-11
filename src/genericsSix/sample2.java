@@ -24,5 +24,8 @@ public class sample2 {
     public static void main(String[] args) {
         List<String> listOfString = Arrays.asList("Ravi","Raj","Amit","Mahto","Rohit","Raj");
         myStream<String> MyStream= new myStream<>(listOfString);
+
+        MyStream.map(t -> t.length())
+                .forEach(count -> System.out.println(count));
     }
 }
