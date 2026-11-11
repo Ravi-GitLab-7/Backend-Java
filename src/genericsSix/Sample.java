@@ -15,14 +15,15 @@ public class Sample {
 
     public static void main(String[] args) {
         List<String> listOfString = Arrays.asList("Ravi","Amit","Rohit","Aayush","Sanjay");
+        List<Integer> listOfInteger = Arrays.asList(1,2,3,4,5);
         Function<CharSequence,Integer> funNumberToString = new Function<CharSequence, Integer>() {
             @Override
             public Integer apply(CharSequence t) {
                 return t.length();
             }
-        };
-
-        List<Integer> listOfInteger = Arrays.asList(1,2,3,4,5);
+        }
+        ;
+        
         Function<Number,String> numberToStrinFunction= new Function<Number, String>() {
             @Override
             public String apply(Number t) {
